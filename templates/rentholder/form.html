@@ -1,0 +1,63 @@
+
+{% include 'rentholder/header.html' %}
+{% load static %}
+
+    <!-- Breadcrumb Begin -->
+    <div class="breadcrumb-option spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="bo-links">
+                        <a href="./index.html"><i class="fa fa-home"></i> Home</a>
+                        <span>FORM</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb End -->
+
+    <!-- Contact Section Begin -->
+    <section class="contact-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="about-pic set-bg" data-setbg="{% static 'user/img/about/about-pic.jpg ' %}"style="margin-top: -19ex;">
+                        <a href="https://www.youtube.com/watch?v=hxADTEJalRw&list=WL&index=49&t=0s" class="play-btn video-popup"><i class="fa fa-play"></i></a>
+                    </div>
+                    
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="contact-form"style="margin-top: -19ex;">
+                        <h3>ADD PRODUCT DETAILS</h3>
+                        
+                        <form action="{% url 'productformaction' %}" method="post" enctype="multipart/form-data">
+                            {% csrf_token %} 
+                            <input type="text" placeholder="Product Name"name="product">
+                            <select name="Category" id="Category" class="form-control">
+                                <option value=""> -- select Category --</option>
+                                {% for data in Category_details %}
+                                <option value="{{data.id}}">{{data.categoriesname}}</option>
+                                {% endfor %}
+                    
+                            </select><br>
+                            <select name="Brand" id="Brand" class="form-control">
+                                <option value=""> -- select Brand --</option>
+                                {% for data in Brand_details %}
+                                <option value="{{data.id}}">{{data.brand}}</option>
+                                {% endfor %}
+                    
+                            </select><br>
+                            <input type="text" placeholder="Rent Price perday"name="price">
+                            <input type="file" name="productimage">
+                            <textarea placeholder="description"name="description"></textarea>
+                            <textarea placeholder="remarks"name="remarks"></textarea>
+                            <button type="submit" class="site-btn">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section End -->
+    {% include 'rentholder/footer.html'%}

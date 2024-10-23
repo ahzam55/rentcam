@@ -1,0 +1,102 @@
+{% include 'admin/header.html' %}
+{% load static %}
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header">
+      <h3 class="fw-bold mb-3">Tables</h3>
+      <ul class="breadcrumbs mb-3">
+        <li class="nav-home">
+          <a href="#">
+            <i class="icon-home"></i>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="icon-arrow-right"></i>
+        </li>
+        <li class="nav-item">
+          <a href="#">Tables</a>
+        </li>
+        <li class="separator">
+          <i class="icon-arrow-right"></i>
+        </li>
+        <li class="nav-item">
+          <a href="#">State & District</a>
+        </li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">State Table</div>
+          </div>
+          <div class="card-body">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">State Name</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead> <tbody>
+                {% for data in state_details %}
+                <tr>
+                  <td>{{forloop.counter}}</td>
+                  <td> {{data.statename}} </td>
+                  <td>
+                    <div class="form-button-action">
+                    <a href="{% url 'statedelete' id=data.id %}"><button type="button" data-bs-toggle="" title="" class="btn btn-link btn-danger">
+                        <i class="fa fa-times"></i>
+                      </button></a>
+                    </div>
+                  </td>
+                </tr>
+                {% endfor %}
+
+              </tbody> 
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">District Table</div>
+          </div>
+          <div class="card-body">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">State </th>
+                  <th scope="col">District </th>
+                  <th scope="col">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Actions</th>
+                </tr>
+              </thead><tbody>
+                {% for data in district_details %}
+                <tr>
+                  <td>{{forloop.counter}}</td>
+                  <td> {{data.state.statename}} </td>
+                  <td> {{data.districtname}} </td>
+                  <td>
+                    <div class="form-button-action">
+                    <a href="{% url 'statedistrictedit' id=data.id %}"><button type="button" data-bs-toggle="tooltip" title="" class="btn btn-link btn-primary btn-lg" data-original-title="Edit Task">
+                        <i class="fa fa-edit"></i>
+                      </button></a>
+                      <a href="{% url 'districtdelete' id=data.id %}"><button type="button" data-bs-toggle="tooltip" title="" class="btn btn-link btn-danger" data-original-title="Remove">
+                        <i class="fa fa-times"></i>
+                      </button></a>
+                    </div>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody> 
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  {% include 'admin/footer.html' %}
+  

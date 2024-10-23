@@ -1,0 +1,128 @@
+{% include 'admin/header.html' %}
+{% load static %}
+       
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header">
+      <h3 class="fw-bold mb-3">Forms</h3>
+      <ul class="breadcrumbs mb-3">
+        <li class="nav-home">
+          <a href="#">
+            <i class="icon-home"></i>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="icon-arrow-right"></i>
+        </li>
+        <li class="nav-item">
+          <a href="#">Forms</a>
+        </li>
+        <li class="separator">
+          <i class="icon-arrow-right"></i>
+        </li>
+        <li class="nav-item">
+          <a href="#">Product</a>
+        </li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Product Registration</div>
+          </div>
+          <form action="productaction.php" method="post" enctype="multipart/form-data">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6 col-lg-4">
+              <div class="form-group">
+                  <label for="product">Product Name</label>
+                  <input
+                    type="text" name="product"
+                    class="form-control"
+                    id="product"
+                    placeholder="Enter Your Product Name"
+                  />
+                  <label for="categories">Categories</label>
+                  <input
+                    type="text" name="quality"
+                    class="form-control"
+                    id="quality"
+                    placeholder="Enter Your Quality"
+                  />
+                  <label for="subcategories">Sub Categories</label>
+                  <input
+                    type="text" name="quality"
+                    class="form-control"
+                    id="quality"
+                    placeholder="Enter Your Quality"
+                  />
+                  <label for="brand">Brand</label>
+                  <input
+                    type="text" name="quality"
+                    class="form-control"
+                    id="quality"
+                    placeholder="Enter Your Quality"
+                  />
+             <br>
+                  <label for="size">Size</label><br>
+                  6 UK<input type="checkbox" name="size[]" value="6UK"/>&nbsp;&nbsp;&nbsp;
+                  7 UK<input type="checkbox" name="size[]" value="7UK"/>&nbsp;&nbsp;&nbsp;
+                  8 UK<input type="checkbox" name="size[]" value="8UK"/>&nbsp;&nbsp;&nbsp;
+                  9 UK<input type="checkbox" name="size[]" value="9UK"/>&nbsp;&nbsp;&nbsp;
+                  10 UK<input type="checkbox" name="size[]" value="10UK"/><br><br>
+                  <label for="stock">Stock</label>
+                  <input
+                    type="text" name="stock"
+                    class="form-control"
+                    id="stock"
+                    placeholder="Enter Your Stock"
+                  />
+                  
+                  <label for="quality">Quality</label>
+                  <input
+                    type="text" name="quality"
+                    class="form-control"
+                    id="quality"
+                    placeholder="Enter Your Quality"
+                  /><br>
+
+                  <label>Upload Main image</label>&nbsp;&nbsp;
+                <input type="file" name="mainimage"><br><br>
+
+                  <label>Upload Sub image</label>&nbsp;&nbsp;
+                <input type="file" name="subimage[]" accept="/*" multiple="" ><br>
+
+                <label for="price">Price</label>
+                  <input
+                    type="text" name="price"
+                    class="form-control"
+                    id="price"
+                    placeholder="Enter Your Price"
+                  />
+                  <label for="description">Description</label>
+                  <textarea name="description" id="description" class="form-control" placeholder="Enter Description"></textarea>
+                </div>
+                
+                
+                
+    
+          </div>
+          <div class="card-action">
+            <button class="btn btn-success">Submit</button>
+            <button class="btn btn-danger">Cancel</button>
+          </div>
+        </div>
+      </div>
+      </div>
+
+
+      </div>
+    </div>
+    </form>
+  </div>
+</div>
+        
+{% include 'admin/footer.html' %}
+
+       

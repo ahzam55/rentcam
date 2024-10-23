@@ -1,0 +1,87 @@
+{% include 'admin/header.html' %}
+{% load static %}
+       
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header">
+      <h3 class="fw-bold mb-3">Forms</h3>
+      <ul class="breadcrumbs mb-3">
+        <li class="nav-home">
+          <a href="#">
+            <i class="icon-home"></i>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="icon-arrow-right"></i>
+        </li>
+        <li class="nav-item">
+          <a href="#">Forms</a>
+        </li>
+        <li class="separator">
+          <i class="icon-arrow-right"></i>
+        </li>
+        <li class="nav-item">
+          <a href="#">Categories</a>
+        </li>
+      </ul>
+    </div>
+    {% if messages %}
+    <div >
+      <div role="alert">
+        {%for message in messages%}
+      <p class="text-uppercase" style="margin-left: 2ex;color:red">{{message}}</p>
+      {%endfor%}
+      </div>
+    </div>
+       {%endif%}
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Category</div>
+          </div>
+          <form action="{% url 'categorieseditaction' id=categories_details.id %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+          <div class="card-body">
+            
+            <div class="row">
+             
+              <div class="col-md-6 col-lg-4">
+               
+              <div class="form-group">
+                  <label for="categoriesname">Category</label>
+                  <input
+                    type="text"  name="categoriesname"
+                    class="form-control"
+                    id="categoriesname"
+                    placeholder="Enter Your Category" value="{{categories_details.categoriesname}}"
+                  /><br>
+                 
+                  {% comment %} <label>Upload image</label>&nbsp;&nbsp;
+                <input type="file" name="categoriesimage"><br> {% endcomment %}
+                </div>
+                
+                
+    
+          </div>
+          <div class="card-action">
+            <button class="btn btn-success">Submit</button>
+            <button class="btn btn-danger">Cancel</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+
+    
+        
+
+</div>
+  </div>
+</div>
+</div>
+
+
+        
+{% include 'admin/footer.html' %}

@@ -1,0 +1,111 @@
+{% include 'rentholder/header.html' %}
+{% load static %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<style>
+  h2 {
+    text-align: center;
+    padding: 20px 0;
+  }
+  
+  .table-bordered {
+    border: 1px solid #ddd !important;
+  }
+  
+  table caption {
+    padding: .5em 0;
+  }
+  
+  @media screen and (max-width: 767px) {
+    table caption {
+      display: none;
+    }
+  }
+  
+  .p {
+    text-align: center;
+    padding-top: 140px;
+    font-size: 14px;
+  }
+</style>
+<section class="checkout-section">
+  <div class="container">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card">
+          <div class="card-body p-4">
+            <div class="row">
+              <div class="col-lg-12">
+                <h5 class="mb-3"><a href="#!" class="text-body"><i
+                      class="fas fa-long-arrow-alt-left me-2"></i>Continue shopping</a></h5>
+                <hr>
+
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                  <div>
+                    <p class="mb-1">Order Details</p>
+                    <p class="mb-0">You have {{booking_count}} items in your profile</p>
+                  </div>
+                  {% comment %} <div>
+                    <p class="mb-0"><span class="text-muted">Sort by:</span> <a href="#!"
+                        class="text-body">price <i class="fas fa-angle-down mt-1"></i></a></p>
+                  </div> {% endcomment %}
+                </div>
+
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="table-responsive" data-pattern="priority-columns">
+                        <table summary="This table shows how to create responsive tables using RWD-Table-Patterns' functionality" class="table table-bordered table-hover">
+                          <thead>
+                            <tr>
+                              <th data-priority="1">Sl No</th>
+                              <th data-priority="2">User</th>
+                              <th data-priority="3">Rent Price</th>
+                              <th data-priority="4">Product</th>
+                              <th data-priority="4">Booking Status</th>
+                              <th data-priority="4"></th>
+
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {% for data in booked_products_list %}
+                            <tr>
+                              <td>{{ forloop.counter }}</td>
+                              <td>{{data.user.image_file.url}}</td>
+                              <td>{{data.product.rent_price_perday}}</td>
+                              <td><img src="{{data.product.product_image.url}}" width="50" height="50">
+                                {{data.product.product_name}}</td>
+                              <td>{{data.booking_status}}</td>
+                              <td><a href=""><button class="btn btn-primary">Accept</button></a>
+                                <a href=""><button class="btn btn-danger">Reject</button></a></td>
+                                {% comment %} {% url 'booking_accept' id=data.booking_id %}
+                                {% url 'booking_reject' id=data.booking_id %} {% endcomment %}
+
+                            </tr>
+                            {% endfor %}
+                          </tbody>
+                          <tfoot>
+                            <tr>
+                            </tr>
+                          </tfoot>
+                        </table>
+                      </div><!--end of .table-responsive-->
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- Services Option Section End -->
+
+    {% include 'rentholder/footer.html'%}
