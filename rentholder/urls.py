@@ -15,7 +15,8 @@ urlpatterns = [
     path('rentholdercontact', views.rentholdercontact, name="rentholdercontact"),
     path('productform', views.productform, name="productform"),
     path('productformaction', views.productformaction, name="productformaction"),
-    
+    path('booking_accept/<id>', views.booking_accept, name="booking_accept"),
+    path('booking_reject/<id>', views.booking_reject, name="booking_reject"),
     
     
 ]

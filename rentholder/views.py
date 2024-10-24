@@ -88,3 +88,23 @@ def productformaction(request):
         reg_obj.save()
         
         return redirect('rentholderservices')
+    
+def booking_accept(request,id):
+    if request.method == "GET":
+        print(id)
+        
+        booking_obj = booking.objects.get(id=id)
+        booking_obj.booking_status ="accept"
+        booking_obj.save()
+    
+    return redirect('rentholderpricing')
+
+def booking_reject(request,id):
+    if request.method == "GET":
+        print(id)
+        
+        booking_obj = booking.objects.get(id=id)
+        booking_obj.booking_status ="reject"
+        booking_obj.save()
+    
+    return redirect('rentholderpricing')

@@ -28,7 +28,7 @@
     padding-top: 140px;
     font-size: 14px;
   }
-</style>
+</style><br><br>
 <section class="checkout-section">
   <div class="container">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -77,10 +77,10 @@
                               <td><img src="{{data.product.product_image.url}}" width="50" height="50">
                                 {{data.product.product_name}}</td>
                               <td>{{data.booking_status}}</td>
-                              <td><a href=""><button class="btn btn-primary">Accept</button></a>
-                                <a href=""><button class="btn btn-danger">Reject</button></a></td>
-                                {% comment %} {% url 'booking_accept' id=data.booking_id %}
-                                {% url 'booking_reject' id=data.booking_id %} {% endcomment %}
+                              <td><a href="{% url 'booking_accept' id=data.id %}"><button class="btn btn-primary">Accept</button></a>
+                                <a href="{% url 'booking_reject' id=data.id %}"><button class="btn btn-danger">Reject</button></a></td>
+                                
+                                
 
                             </tr>
                             {% endfor %}
@@ -104,7 +104,7 @@
       </div>
     </div>
   </div>
-</section>
+</section><br><br><br>
 
     <!-- Services Option Section End -->
 

@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="{% static 'user/magnific-popup.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'user/slicknav.min.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'user/style.css' %}" type="text/css">
+    
 </head>
 
 <body>
@@ -30,17 +31,17 @@
     </div>
 
     <!-- Header Section Begin -->
-    <header class="header-section">
+    <header class="header-section" style="background-color: black;">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="logo">
                         <a href="./index.html">
-                            <img src="{% static 'user/img/logo.png' %}" alt="">
+                            <img src="{% static 'user/img/logo.webp' %}" alt=""style="width: 30ex;height: 9ex;margin-left: -9ex;margin-top: -2ex;">
                         </a>
                     </div>
                     <nav class="nav-menu mobile-menu">
-                        <ul>
+                        <ul style="margin-left: -17ex;">
                             <li class="active"><a href="{% url 'rentholderindex'  %}">Home</a></li>
                             <li><a href="{% url 'rentholderabout'  %}">About</a></li>
                             <li><a href="{% url 'rentholderservices'  %}">Services</a></li>
@@ -53,7 +54,7 @@
                                 </ul>
                             </li> 
                             <li><a href="{% url 'rentholdercontact'  %}">Contact</a></li>
-                            <a href="{% url 'signin'  %}" style="margin-left: 10ex;"class="primary-btn">Logout</a> 
+                            <a href="{% url 'signin'  %}" style="margin-left: 39ex;"class="primary-btn">Logout</a> 
                         </ul>
                     </nav>
                 </div>
