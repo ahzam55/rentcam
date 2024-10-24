@@ -94,7 +94,7 @@ def booking_accept(request,id):
         print(id)
         
         booking_obj = booking.objects.get(id=id)
-        booking_obj.booking_status ="accept"
+        booking_obj.booking_status ="rentholder accept your order"
         booking_obj.save()
     
     return redirect('rentholderpricing')
@@ -104,7 +104,7 @@ def booking_reject(request,id):
         print(id)
         
         booking_obj = booking.objects.get(id=id)
-        booking_obj.booking_status ="reject"
+        booking_obj.booking_status ="rentholder reject your order"
         booking_obj.save()
     
     return redirect('rentholderpricing')

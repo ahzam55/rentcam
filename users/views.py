@@ -145,3 +145,29 @@ def ad_paymentaction(request):
     
     return redirect("bookingconformed")
 
+def paymentbal(request,id):
+    bal_details = payment.objects.filter(bill_no=id)
+    for data in bal_details:
+        total_price = data.bal_amount+data.adv_amount
+        print(total_price)
+    return render(request, "users/bal_payment.html",{"bal_details": bal_details,"total_price": total_price})
+
+def bal_paymentaction(request,id):
+    if request.method=="POST":
+        booking_obj = booking.objects.get(bill_id=id)
+        booking_obj.booking_status = "booking confirmed"
+        booking_obj.save()
+    
+    
+        pay_obj =payment()
+        pay_obj =payment.objects.get(bill_no=id)
+        pay_obj.payment_status =  "booked confirmed"
+        pay_obj.save()
+        
+        reg_obj =bookingmaster()
+        reg_obj =bookingmaster.objects.get(id=id)
+        reg_obj.booking_status =  "booked confirmed"
+        reg_obj.save()
+    
+    return redirect(pricing)
+

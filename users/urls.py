@@ -17,8 +17,9 @@ urlpatterns = [
     path('bookingaction', views.bookingaction, name="bookingaction"),
     path('paymentadv/<id>/<price>/<total_price>', views.paymentadv, name="paymentadv"),
     path('ad_paymentaction', views.ad_paymentaction, name="ad_paymentaction"),
-     path('bookingconformed', views.bookingconformed, name="bookingconformed"),
-    
+    path('bookingconformed', views.bookingconformed, name="bookingconformed"),
+    path('paymentbal/<id>/', views.paymentbal, name="paymentbal"),
+    path('bal_paymentaction/<id>/', views.bal_paymentaction, name="bal_paymentaction"),
     
     
 ]

@@ -24,6 +24,8 @@
             <div class="table-cell">Product Image</div>
             <div class="table-cell">Product Name</div>
             <div class="table-cell">Description</div>
+            <div class="table-cell">Status</div>
+            <div class="table-cell"></div>
         </div>
         {% for data in booking_details %}
         <div class="table-row">
@@ -35,6 +37,12 @@
             </div>
             <div class="table-cell">
                 <span>{{data.product.description}}</span>
+            </div>
+            <div class="table-cell">
+                <span>{{data.booking_status}}</span>
+            </div>
+            <div class="table-cell">
+                <a href="{% url 'paymentbal' id=data.bill_id  %}"><button class="primary-btn">Pay Balance</button></a>
             </div>
             
         </div>
