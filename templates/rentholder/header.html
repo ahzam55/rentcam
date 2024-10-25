@@ -45,7 +45,12 @@
                             <li class="active"><a href="{% url 'rentholderindex'  %}">Home</a></li>
                             <li><a href="{% url 'rentholderabout'  %}">About</a></li>
                             <li><a href="{% url 'rentholderservices'  %}">Services</a></li>
-                            <li><a href="{% url 'rentholderpricing'  %} ">booking</a></li>
+                            <li><a href="#">booking</a>
+                            <ul class="dropdown">
+                                <li><a href="{% url 'rentholderpricing'  %}">booking Details</a></li>
+                                <li><a href="{% url 'bookinghistory'  %}">booking history </a></li>
+                            </ul>
+                        </li>
                             <li><a href="#">Pages</a>
                                 <ul class="dropdown">
                                     <li><a href="{% url 'rentholdergallery'  %}">Gallery</a></li>

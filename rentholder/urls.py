@@ -17,6 +17,8 @@ urlpatterns = [
     path('productformaction', views.productformaction, name="productformaction"),
     path('booking_accept/<id>', views.booking_accept, name="booking_accept"),
     path('booking_reject/<id>', views.booking_reject, name="booking_reject"),
-    
+    path('booking_goneforrent/<id>', views.booking_goneforrent, name="booking_goneforrent"),
+    path('booking_itemavailable/<id>', views.booking_itemavailable, name="booking_itemavailable"),
+    path('bookinghistory', views.bookinghistory, name="bookinghistory"),
     
 ]

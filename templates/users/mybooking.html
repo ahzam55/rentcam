@@ -25,7 +25,7 @@
             <div class="table-cell">Product Name</div>
             <div class="table-cell">Description</div>
             <div class="table-cell">Status</div>
-            <div class="table-cell"></div>
+            <div class="table-cell">Payment</div>
         </div>
         {% for data in booking_details %}
         <div class="table-row">
@@ -41,10 +41,11 @@
             <div class="table-cell">
                 <span>{{data.booking_status}}</span>
             </div>
+            {% if data.booking_status == 'rentholder accept your order'%}
             <div class="table-cell">
                 <a href="{% url 'paymentbal' id=data.bill_id  %}"><button class="primary-btn">Pay Balance</button></a>
             </div>
-            
+            {% endif %}
         </div>
         {% endfor %}
     </div>

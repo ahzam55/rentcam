@@ -25,6 +25,31 @@ def rentholderpricing(request):
     
     return render(request, "rentholder/pricing.html",{"booked_products_list": booked_products_list})
 
+def bookinghistory(request):
+    rentholderid=request.session['loginid']
+    booked_products_list=booking.objects.select_related("product").filter(rentholder_id=rentholderid)
+    master_booking=bookingmaster.objects.filter(rentholder=rentholderid)
+    
+    booking_data = []
+    for booked in booked_products_list:
+        booking_data.append({
+            "type": "product_booking",
+            "product_image": booked.product.product_image,
+            "product_name": booked.product.product_name,
+            "from_date": booked.from_date,
+            "to_date": booked.to_date,
+            "booking_status": booked.booking_status,
+        })
+    for master in master_booking:
+        booking_data.append({
+            "type": "master_booking",
+            "total_price": master.total_price,
+            
+        })
+        
+    print(booking_data)
+    return render(request, "rentholder/bookinghistory.html",{"booking_data": booking_data})
+
 def rentholderportfolio(request):
     
     return render(request, "rentholder/portfolio.html")
@@ -105,6 +130,26 @@ def booking_reject(request,id):
         
         booking_obj = booking.objects.get(id=id)
         booking_obj.booking_status ="rentholder reject your order"
+        booking_obj.save()
+    
+    return redirect('rentholderpricing')
+
+def booking_goneforrent(request,id):
+    if request.method == "GET":
+        print(id)
+        
+        booking_obj = booking.objects.get(id=id)
+        booking_obj.booking_status ="Gone for rent"
+        booking_obj.save()
+    
+    return redirect('rentholderpricing')
+
+def booking_itemavailable(request,id):
+    if request.method == "GET":
+        print(id)
+        
+        booking_obj = booking.objects.get(id=id)
+        booking_obj.booking_status ="item available"
         booking_obj.save()
     
     return redirect('rentholderpricing')

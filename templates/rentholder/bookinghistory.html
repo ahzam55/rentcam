@@ -64,39 +64,27 @@
                               <th data-priority="3">Rent Price</th>
                               <th data-priority="4">Product</th>
                               <th data-priority="4">Booking Status</th>
-                              <th data-priority="4"></th>
+                              <th data-priority="4">From date and To date </th>
 
                             </tr>
                           </thead>
                           <tbody>
-                            {% for data in booked_products_list %}
+                           
                             <tr>
-                              <td>{{ forloop.counter }}</td>
-                              <td>{{data.user.image_file.url}}</td>
-                              <td>{{data.product.rent_price_perday}}</td>
-                              <td><img src="{{data.product.product_image.url}}" width="50" height="50">
-                                {{data.product.product_name}}</td>
-                              <td>{{data.booking_status}}</td>
-                              {% if data.booking_status == 'booked'%}
-                              <td><a href="{% url 'booking_accept' id=data.id %}"style="margin-left: 25px;"><button class="btn btn-primary">Accept</button></a>
-                                <a href="{% url 'booking_reject' id=data.id %}"><button class="btn btn-danger">Reject</button></a></td>
-                              
-                              {% elif data.booking_status == 'rentholder accept your order'%}
-                              <td>
-                               <a href="{% url 'booking_reject' id=data.id %}"><button class="btn btn-danger" style="margin-left: 60px;">Reject</button></a></td>
-                               {% elif data.booking_status == 'booking confirmed'%}
-                               <td>
-                                <a href="{% url 'booking_goneforrent' id=data.id %}"><button class="btn btn-primary" style="margin-left: 40px;">Gone for rent</button></a></td>
-                                {% elif data.booking_status == 'Gone for rent'%}
-                               <td>
-                                <a href="{% url 'booking_itemavailable' id=data.id %}"><button class="btn btn-primary" style="margin-left: 35px;">item available</button></a></td>
-                               {% elif data.booking_status == 'rentholder reject your order'%}
-                              
-                              {% endif %}
-                                
-
+                              {% for data in booking_data %}
+                                {% if data.type == "product_booking" %}
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{data.user.image_file.url}}</td>
+                                <td>{{data.total_price}}</td>
+                                <td><img src="{{data.product_image.url}}" width="50" height="50">{{data.product_name}}</td>
+                                <td>{{data.booking_status}}</td>
+                                <td>{{data.from_date}} to {{data.to_date}}</td>
+                                {% elif data.type == "master_booking" %}
+                                <td>{{data.total_price}}</td>
+                                {% endif %}
                             </tr>
                             {% endfor %}
+                           
                           </tbody>
                           <tfoot>
                             <tr>
