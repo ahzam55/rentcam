@@ -16,7 +16,7 @@ def blog(request):
     
     return render(request, "users/blog.html")
 
-def services(request):
+def Products(request):
     product_details = product.objects.all()
     
     return render(request, "users/services.html",{"product_details": product_details})
