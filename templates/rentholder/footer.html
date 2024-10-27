@@ -27,21 +27,40 @@
                     <div class="fs-widget">
                         <h5>Quick links</h5>
                         <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><a href="{% url 'rentholderindex'  %}">Home</a></li>
+                            <li><a href="{% url 'rentholderabout'  %}">About</a></li>
+                            <li><a href="{% url 'rentholdercontact'  %}">Contact</a></li>
                         </ul>
+                        {% comment %} <ul style="margin-left: -19ex;">
+                            <li class="active"><a href="{% url 'rentholderindex'  %}">Home</a></li>
+                            <li><a href="{% url 'rentholderabout'  %}">About</a></li>
+                            <li><a href="{% url 'rentholderservices'  %}">ADD PRODUCT</a></li>
+                            <li><a href="#">booking</a>
+                            <ul class="dropdown">
+                                <li><a href="{% url 'rentholderpricing'  %}">booking Details</a></li>
+                                <li><a href="{% url 'bookinghistory'  %}">booking history </a></li>
+                            </ul>
+                        </li>
+                            <li><a href="#">Pages</a>
+                                <ul class="dropdown">
+                                    <li><a href="{% url 'rentholdergallery'  %}">Gallery</a></li>
+                                    <li><a href="{% url 'rentholderportfoliodetails'  %}">Portfolio Details</a></li>
+                                    <li><a href="{% url 'rentholderblogdetails'  %}">Blog Details</a></li>
+                                </ul>
+                            </li> 
+                            <li><a href="{% url 'rentholdercontact'  %}">Contact</a></li> {% endcomment %}
                         <ul>
-                            <li><a href="#">Gallery</a></li>
-                            <li><a href="#">Portfolio</a></li>
-                            <li><a href="#">Services</a></li>
+                            <li><a href="{% url 'rentholderservices'  %}">ADD PRODUCT</a></li>
+                            <li><a href="{% url 'rentholderportfoliodetails'  %}">Portfolio</a></li>
+                            <li><a href="{% url 'rentholderpricing'  %}">booking Details</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="fs-widget">
                         <h5>Subscribe</h5>
-                        <p>Imolor amet consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+                        <p>Subscribe to RENTCAM for exclusive updates, special offers, 
+                            and insider tips to enhance your photography journey!</p>
                         <div class="fw-subscribe">
                             <form action="#">
                                 <input type="text" placeholder="Email">
@@ -53,7 +72,7 @@
                 <div class="col-lg-12">
                     <div class="copyright-text">
                         <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Rentcam</a>
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                     </div>
                 </div>
