@@ -40,16 +40,16 @@
                         </a>
                     </div>
                     <nav class="nav-menu mobile-menu">
-                        <ul style="margin-left: -19ex;">
+                        <ul style="margin-left: -25ex;">
                             <li class="active"><a href="{% url 'index'  %}">Home</a></li>
                             <li><a href="{% url 'about'  %}">About</a></li>
                             <li><a href="{% url 'Products'  %}">Products</a></li>
                             <li><a href="{% url 'pricing'  %} ">My Booking</a></li>
-                            <li><a href="#">Pages</a>
+                            <li><a href="#">My Account</a>
                                 <ul class="dropdown">
-                                    <li><a href="{% url 'gallery'  %}">Gallery</a></li>
-                                    <li><a href="{% url 'portfoliodetails'  %}">Portfolio Details</a></li>
-                                    <li><a href="{% url 'blogdetails'  %}">Blog Details</a></li>
+                                    <li><a href="{% url 'profiledetails'  %}">profile</a></li>
+                                    {% comment %} <li><a href="{% url 'portfoliodetails'  %}">Portfolio Details</a></li>
+                                    <li><a href="{% url 'blogdetails'  %}">Blog Details</a></li> {% endcomment %}
                                 </ul>
                             </li> 
                             <li><a href="{% url 'contact'  %}">Contact</a></li>

@@ -1,12 +1,16 @@
 from django.http import JsonResponse
 from django.shortcuts import redirect, render
 from adminapp.models import *
+from guest.models import *
 from django.contrib import messages
 
 
 # Create your views here.
 def adminindex(request):
-    return render(request, "admin/index.html")
+    user_count = user.objects.all().count()
+    rent_count = rentholder.objects.all().count()
+    
+    return render(request, "admin/index.html", {"usercount": user_count,"rent_count":rent_count})
 
 def statedistrict(request):
     state_details = state.objects.all()

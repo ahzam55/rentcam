@@ -34,9 +34,13 @@ def gallery(request):
     
     return render(request, "users/gallery.html")
 
-def portfoliodetails(request):
-    
-    return render(request, "users/portfolio-details.html")
+def profiledetails(request):
+    if request.method == "GET":
+        userid=request.session['loginid']
+        print(userid)
+        user_details = user.objects.select_related("state","district").filter(login=userid)
+        print(user_details)
+        return render(request, "users/portfolio-details.html",{"user_details": user_details})
 
 def blogdetails(request):
     
