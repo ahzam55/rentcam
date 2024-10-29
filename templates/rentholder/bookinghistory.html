@@ -56,41 +56,34 @@
                   <div class="row">
                     <div class="col-md-12">
                       <div class="table-responsive" data-pattern="priority-columns">
-                        <table summary="This table shows how to create responsive tables using RWD-Table-Patterns' functionality" class="table table-bordered table-hover">
+                        <table summary="This table shows booking history" class="table table-bordered table-hover">
                           <thead>
-                            <tr>
-                              <th data-priority="1">Sl No</th>
-                              <th data-priority="2">User</th>
-                              <th data-priority="3">Rent Price</th>
-                              <th data-priority="4">Product</th>
-                              <th data-priority="4">Booking Status</th>
-                              <th data-priority="4">From date and To date </th>
-
-                            </tr>
+                              <tr>
+                                  <th data-priority="1">Sl No</th>
+                                  <th data-priority="2">Product</th>
+                                  <th data-priority="3">Rent Price</th>
+                                  <th data-priority="4">Booking Status</th>
+                                  <th data-priority="5">From Date</th>
+                                  <th data-priority="6">To Date</th>
+                              </tr>
                           </thead>
                           <tbody>
-                           
-                            <tr>
                               {% for data in booking_data %}
-                                {% if data.type == "product_booking" %}
-                                <td>{{ forloop.counter }}</td>
-                                <td>{{data.user.image_file.url}}</td>
-                                <td>{{data.total_price}}</td>
-                                <td><img src="{{data.product_image.url}}" width="50" height="50">{{data.product_name}}</td>
-                                <td>{{data.booking_status}}</td>
-                                <td>{{data.from_date}} to {{data.to_date}}</td>
-                                {% elif data.type == "master_booking" %}
-                                <td>{{data.total_price}}</td>
-                                {% endif %}
-                            </tr>
-                            {% endfor %}
-                           
+                                 <tr>
+                                      <td>{{ forloop.counter }}</td>
+                                      <td>
+                                          <img src="{{ data.product_image.url }}" alt="Product Image" width="50" height="50">
+                                          {{ data.product_name }}
+                                      </td>
+                                      <td>{{ data.total_price }}</td> <!-- Placeholder for Rent Price if not provided -->
+                                      <td>{{ data.booking_status }}</td>
+                                      <td>{{ data.from_date }}</td>
+                                      <td>{{ data.to_date }}</td>
+                                  </tr>
+                              {% endfor %}
                           </tbody>
-                          <tfoot>
-                            <tr>
-                            </tr>
-                          </tfoot>
-                        </table>
+                      </table>
+
                       </div><!--end of .table-responsive-->
                     </div>
                   </div>

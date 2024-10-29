@@ -73,9 +73,9 @@
                             <tr>
                               <td>{{ forloop.counter }}</td>
                               <td>{{data.user.image_file.url}}</td>
-                              <td>{{data.product.rent_price_perday}}</td>
-                              <td><img src="{{data.product.product_image.url}}" width="50" height="50">
-                                {{data.product.product_name}}</td>
+                              <td>{{data.total_price}}</td>
+                              <td><img src="{{data.product_image.url}}" width="50" height="50">
+                                {{data.product_name}}</td>
                               <td>{{data.booking_status}}</td>
                               {% if data.booking_status == 'booked'%}
                               <td><a href="{% url 'booking_accept' id=data.id %}"style="margin-left: 25px;"><button class="btn btn-primary">Accept</button></a>

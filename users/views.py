@@ -5,8 +5,8 @@ from datetime import datetime
 # Create your views here.
 
 def index(request):
-    
-    return render(request, "users/index.html")
+    product_details = product.objects.all()
+    return render(request, "users/index.html",{"product_details": product_details})
 
 def about(request):
     
