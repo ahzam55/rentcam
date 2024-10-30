@@ -84,14 +84,14 @@
                   aria-expanded="false"
                 >
                   <i class="fas fa-home"></i>
-                  <p>Dashboard</p>
+                  <p>Index</p>
                   <span class="caret"></span>
                 </a>
                 <div class="collapse" id="dashboard">
                   <ul class="nav nav-collapse">
                     <li>
-                      <a href="index.php">
-                        <span class="sub-item">Dashboard 1</span>
+                      <a href="{% url 'adminindex'%}">
+                        <span class="sub-item">Index</span>
                       </a>
                     </li>
                   </ul>
@@ -237,19 +237,19 @@
                 <div class="collapse" id="maps">
                   <ul class="nav nav-collapse">
                     <li>
-                      <a href="ordermaster.php">
-                        <span class="sub-item">Order</span>
+                      <a href="{% url 'bookingdetails' %}">
+                        <span class="sub-item">Booking Details</span>
                       </a>
                     </li>
                     <li>
-                      <a href="delivered.php">
-                        <span class="sub-item">Delivered</span>
+                      <a href="{% url 'paymentdetails' %}">
+                        <span class="sub-item">Payment Details</span>
                       </a>
                     </li>
                   </ul>
                 </div>
               </li>
-              <li class="nav-item">
+              {% comment %} <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#charts">
                   <i class="far fa-chart-bar"></i>
                   <p>Reports</p>
@@ -339,7 +339,7 @@
                     </li>
                   </ul>
                 </div>
-              </li>
+              </li> {% endcomment %}
             </ul>
           </div>
         </div>

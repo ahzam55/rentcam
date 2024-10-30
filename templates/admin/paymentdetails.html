@@ -1,0 +1,62 @@
+{% include 'admin/header.html' %}
+{% load static %}
+
+<div><br><br><br><br><br>
+    <table class="table align-items-center mb-0">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Payment Number</th>
+                <th scope="col" class="text-end">Date & Time</th>
+                <th scope="col" class="text-end">Amount</th>
+                <th scope="col" class="text-end">Profit</th>
+                <th scope="col" class="text-end">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in payment_data %}
+            <tr>
+                <th scope="row">
+                    <button class="btn btn-icon btn-round btn-success btn-sm me-2">
+                        <i class="fa fa-check"></i>
+                    </button>
+                    Payment from #{{ data.bill }}
+                </th>
+                <td class="text-end">{{ data.payment_date }}</td>
+                <td class="text-end">{{ data.total_price }}</td>
+                <td class="text-end">{{ data.adv_amount }}</td>
+                <td class="text-end">
+                    <span class="badge badge-success">{{ data.payment_status }}</span>
+                </td>
+            </tr>
+            {% endfor %}
+            
+            <!-- Total row -->
+            <tr>
+                <td colspan="2" class="text-start fw-bold">Total</td> <!-- Aligned to the left -->
+                <td class="text-end fw-bold">
+                    {{ total_amtp }}
+                </td>
+                <td class="text-end fw-bold">
+                    {{ total_amt }}
+                </td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+      
+    
+</div>
+</div>
+</div>
+</div>
+</div><br><br>
+
+
+
+
+
+
+
+
+
+{% include 'admin/footer.html'%}

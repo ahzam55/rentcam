@@ -20,6 +20,8 @@ urlpatterns = [
     path('branddelete/<int:id>/', views.branddelete, name="branddelete"),
     path('categorieseditaction/<int:id>/', views.categorieseditaction, name="categorieseditaction"),
     path('brandeditaction/<int:id>/', views.brandeditaction, name="brandeditaction"),
+    path('bookingdetails', views.bookingdetails, name="bookingdetails"),
+    path('paymentdetails', views.paymentdetails, name="paymentdetails"),
     
     
     
